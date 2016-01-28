@@ -29,6 +29,9 @@ public class HardwoodSeller {
 										  new WoodItem("White Oak", 2.3, 6.70),
 										  new WoodItem("Sawdust", 1.5, 1.00)};
 	
+	// a list of all the wood ordered
+	private static List<String> orderList = new ArrayList<String>();
+	
 	/**
 	 * @param args
 	 * @throws FileNotFoundException 
