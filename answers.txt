@@ -1,0 +1,22 @@
+a. 8 commits
+
+b. Thu Aug 20 18:05:41 2015
+
+c. 
+OracleJava/src/controller/HardwoodSeller.java
+OracleJava/src/model/WoodItem.java
+.classpath
+.gitattributes
+.gitignore
+.project
+README.txt.txt
+
+d. HardwoodSeller.java was modified once, while WoodItem.java was modified twice.
+
+e. git log is for showing all the commits that have been made while git status focuses on showing you info about the staging for what's to be the current commit.
+
+f. git log -- main.java
+
+g. git log --grep="transaction"
+
+h. git log --after="2016-1-5" --before="2016-2-16" --author="Lauren"
