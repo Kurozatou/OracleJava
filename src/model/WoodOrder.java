@@ -10,9 +10,9 @@ package model;
 public class WoodOrder {
 
 	WoodItem type;
-	Integer quantity;
-	Double price;
-	Double deliveryTime;
+	int quantity;
+	double price;
+	double deliveryTime;
 	
 	/**
 	 * Constructor of a WoodOrder element with parameters
@@ -20,7 +20,7 @@ public class WoodOrder {
 	 * @param daseDeliveryTime base delivery time
 	 * @param price price per Bare Foot
 	 */
-	public WoodOrder(WoodItem type, Integer quantity, Double price, Double deliveryTime) {
+	public WoodOrder(WoodItem type, int quantity, double price, double deliveryTime) {
 		this.type = type;
 		this.quantity = quantity;
 		this.price = price;
@@ -42,7 +42,7 @@ public class WoodOrder {
 	 * 
 	 * @return the total quantity
 	 */
-	public Integer getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 	
@@ -51,7 +51,7 @@ public class WoodOrder {
 	 * 
 	 * @return the baseDeliverytime
 	 */
-	public Double getDeliveryTime() {
+	public double getDeliveryTime() {
 		return deliveryTime;
 	}
 
@@ -61,7 +61,7 @@ public class WoodOrder {
 	 * 
 	 * @return the total price
 	 */
-	public Double getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	

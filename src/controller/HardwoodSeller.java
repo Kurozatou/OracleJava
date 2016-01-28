@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import model.WoodItem;
+import model.*;
 
 /**
  * @author Esteban
@@ -30,7 +30,7 @@ public class HardwoodSeller {
 										  new WoodItem("Sawdust", 1.5, 1.00)};
 	
 	// a list of all the wood ordered
-	private static List<String> orderList = new ArrayList<String>();
+	private static List<WoodOrder> orderList = new ArrayList<WoodOrder>();
 	
 	/**
 	 * @param args
@@ -45,6 +45,7 @@ public class HardwoodSeller {
 		String filePath = s.next();
 		// read input using file path
 		readInputFile(filePath);
+		s.close();
 	}
 	
 	public static void readInputFile(String inputFilePath) throws FileNotFoundException{
@@ -57,16 +58,33 @@ public class HardwoodSeller {
 		fullName = in.next();
 		address = in.next();
 		orderDate = in.next();
-		System.out.print(address);
 		
 		// scan in wood
 		while(in.hasNext()){
-			
+			String orderLine = in.next();
+			int colon = orderLine.indexOf(":");
+			// get name
+			String name = orderLine.substring(0, colon);
+			// get type based on name
+			WoodItem type = null;
+			for (WoodItem item : woodList) {
+				if (name.equals(item.getType())) {
+					type = item;
+				}
+			}
+			// get quantity
+			int quantity = Integer.parseInt((orderLine.substring(colon+1, orderLine.length())));
+			// calculate price
+			double price = quantity * type.getPrice();
+			// calculate delivery time
+			double delivery = type.getBaseDeliveryTime() * deliveryTime(quantity);
+			System.out.printf("%d\n",quantity);
 		}
+		in.close();
 	}
 	
-	public Double deliveryTime(){
-		Double deliveryETA = 0.0;
+	public static double deliveryTime(int quantity){
+		double deliveryETA = 0.0;
 		return deliveryETA;
 	}
 	
