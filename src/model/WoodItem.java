@@ -4,7 +4,7 @@
 package model;
 
 /**
- * @author Elliot Rauchwerger
+ * @author Esteban & Elliot Rauchwerger
  *
  */
 public class WoodItem {

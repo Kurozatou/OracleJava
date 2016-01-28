@@ -12,7 +12,7 @@ import java.util.Scanner;
 import model.*;
 
 /**
- * @author Esteban
+ * @author Esteban & Elliot Rauchwerger
  *
  */
 public class HardwoodSeller {
@@ -27,7 +27,7 @@ public class HardwoodSeller {
 										  new WoodItem("Genuine Mahogany", 3.0, 9.60),
 										  new WoodItem("Wenge", 5.0, 22.35),
 										  new WoodItem("White Oak", 2.3, 6.70),
-										  new WoodItem("Sawdust", 1.5, 1.00)};
+										  new WoodItem("Sawdust", 1.0, 1.5)};
 	
 	// a list of all the wood ordered
 	private static List<WoodOrder> orderList = new ArrayList<WoodOrder>();
@@ -46,6 +46,8 @@ public class HardwoodSeller {
 		// read input using file path
 		readInputFile(filePath);
 		s.close();
+		// output results
+		outputResults();
 	}
 	
 	public static void readInputFile(String inputFilePath) throws FileNotFoundException{
@@ -70,6 +72,7 @@ public class HardwoodSeller {
 			for (WoodItem item : woodList) {
 				if (name.equals(item.getType())) {
 					type = item;
+					break;
 				}
 			}
 			// get quantity
@@ -77,15 +80,45 @@ public class HardwoodSeller {
 			// calculate price
 			double price = quantity * type.getPrice();
 			// calculate delivery time
-			double delivery = type.getBaseDeliveryTime() * deliveryTime(quantity);
-			System.out.printf("%d\n",quantity);
+			double delivery = type.getBaseDeliveryTime() * deliveryMultiplier(quantity);
+			// create new order item
+			orderList.add(new WoodOrder(type, quantity, price, delivery));
 		}
+		
 		in.close();
 	}
 	
-	public static double deliveryTime(int quantity){
-		double deliveryETA = 0.0;
-		return deliveryETA;
+	public static void outputResults(){
+		// output results
+		double totalPrice = 0.0;
+		double maxDeliveryTime = orderList.get(0).getDeliveryTime();
+		System.out.printf("Name of buyer: %s\n", fullName);
+		System.out.printf("Address of delivery: %s\n", address);
+		System.out.println("WOOD ORDERED:");
+		System.out.println("-------------");
+		for (WoodOrder order : orderList){
+			// update total price
+			totalPrice += order.getPrice();
+			// check for max delivery time
+			if (order.getDeliveryTime() > maxDeliveryTime) 
+				maxDeliveryTime = order.getDeliveryTime();
+			// display each item on list
+			System.out.printf("* %s\n", order);
+		}
+		System.out.printf("Total price of purchase: $%.2f\n", totalPrice);
+		System.out.printf("Estimated delivery time: %.2f hours\n", maxDeliveryTime);
+	}
+	
+	public static double deliveryMultiplier(int quantity){
+		double multiplier = 0.0;
+		
+		if (quantity <= 500){
+			multiplier = Math.ceil(quantity/100.0);
+		} else {
+			multiplier = 5.5;
+		}
+		
+		return multiplier;
 	}
 	
 }

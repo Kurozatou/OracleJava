@@ -33,7 +33,7 @@ public class WoodOrder {
 	 * @return Name of the WoodItem
 	 */
 	public String getType() {
-		return type.type;
+		return type.getType();
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class WoodOrder {
 	 */
 	@Override
 	public String toString() {	
-		return "";
+		return String.format("%d BF of %s at $%.2f", quantity, type.getType(), price);
 	}
 	
 }
