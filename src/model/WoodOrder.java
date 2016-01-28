@@ -16,9 +16,10 @@ public class WoodOrder {
 	
 	/**
 	 * Constructor of a WoodOrder element with parameters
-	 * @param type Name of the wood type
-	 * @param daseDeliveryTime base delivery time
-	 * @param price price per Bare Foot
+	 * @param type of wood
+	 * @param quantity of wood
+	 * @param price of wood
+	 * @param delivery time of wood
 	 */
 	public WoodOrder(WoodItem type, int quantity, double price, double deliveryTime) {
 		this.type = type;

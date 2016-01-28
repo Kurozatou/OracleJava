@@ -23,11 +23,11 @@ public class HardwoodSeller {
 	
 	// an array of all the different types of wood sold
 	private static WoodItem[] woodList = {new WoodItem("Cherry", 2.5, 5.95),
-										  new WoodItem("Curly Maple", 1.5, 6.00),
-										  new WoodItem("Genuine Mahogany", 3.0, 9.60),
-										  new WoodItem("Wenge", 5.0, 22.35),
-										  new WoodItem("White Oak", 2.3, 6.70),
-										  new WoodItem("Sawdust", 1.0, 1.5)};
+			new WoodItem("Curly Maple", 1.5, 6.00),
+			new WoodItem("Genuine Mahogany", 3.0, 9.60),
+			new WoodItem("Wenge", 5.0, 22.35),
+			new WoodItem("White Oak", 2.3, 6.70),
+			new WoodItem("Sawdust", 1.0, 1.5)};
 	
 	// a list of all the wood ordered
 	private static List<WoodOrder> orderList = new ArrayList<WoodOrder>();
@@ -50,6 +50,12 @@ public class HardwoodSeller {
 		outputResults();
 	}
 	
+	/**
+	 * reads in the input file and parses it
+	 * 
+	 * @param inputFilePath
+	 * @throws FileNotFoundException 
+	 */
 	public static void readInputFile(String inputFilePath) throws FileNotFoundException{
 		// open the file
 		File file = new File(inputFilePath);
@@ -88,6 +94,9 @@ public class HardwoodSeller {
 		in.close();
 	}
 	
+	/**
+	 * outputs the results of the calculator
+	 */
 	public static void outputResults(){
 		// output results
 		double totalPrice = 0.0;
@@ -109,6 +118,12 @@ public class HardwoodSeller {
 		System.out.printf("Estimated delivery time: %.2f hours\n", maxDeliveryTime);
 	}
 	
+	/**
+	 * calculates a multiplier used for calculating estimated delivery time
+	 * 
+	 * @param quantity
+	 * @return multiplier
+	 */
 	public static double deliveryMultiplier(int quantity){
 		double multiplier = 0.0;
 		

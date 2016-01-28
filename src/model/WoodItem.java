@@ -24,9 +24,9 @@ public class WoodItem {
 	
 	/**
 	 * Constructor of a WoodItem element with parameters
-	 * @param type Name of the wood type
-	 * @param daseDeliveryTime base delivery time
-	 * @param price price per Bare Foot
+	 * @param name of wood
+	 * @param base delivery time of wood
+	 * @param price of wood per BF
 	 */
 	public WoodItem(String type, Double daseDeliveryTime, Double price) {
 		this.type = type;
@@ -37,7 +37,7 @@ public class WoodItem {
 	/**
 	 * Get the type of Wood
 	 * 
-	 * @return Name of the WoodItem
+	 * @return name of the WoodItem
 	 */
 	public String getType() {
 		return type;
