@@ -1,3 +1,5 @@
+Name: Elliot Rauchwerger
+CS username: rauchwer
 Welcome.
 
 You have sucessfully obtained a copy of the contents in the oracle repository.
